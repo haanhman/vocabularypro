@@ -6939,6 +6939,10 @@ react-modal@^3.1.10:
     prop-types "^15.5.10"
     warning "^3.0.0"
 
+react-native-audio-streaming@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-native-audio-streaming/-/react-native-audio-streaming-2.3.2.tgz#3f25b61c13a8093d67001cdb5d458fc5a3185835"
+
 react-native-compat@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-compat/-/react-native-compat-1.0.0.tgz#491dbd8a0105ac061b8d0d926463ce6a3dff33bc"
@@ -6998,10 +7002,6 @@ react-native-safe-area-view@^0.7.0:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
   dependencies:
     hoist-non-react-statics "^2.3.1"
-
-react-native-sound@^0.10.6:
-  version "0.10.6"
-  resolved "https://registry.yarnpkg.com/react-native-sound/-/react-native-sound-0.10.6.tgz#abd4e14606a852646acdb64289875f7c2185dc42"
 
 react-native-tab-view@^0.0.74:
   version "0.0.74"

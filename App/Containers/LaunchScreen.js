@@ -5,7 +5,22 @@ import { Images } from '../Themes'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
+import {NativeModules} from 'react-native'
+var audio = NativeModules.MyAudio;
+
 export default class LaunchScreen extends Component {
+
+  componentDidMount() {
+    console.log('Play audio');
+    audio.play('audio/avoid.mp3');
+    setTimeout(() => {
+      audio.play('audio/1.mp3');
+      audio.play('audio/2.mp3');
+      audio.play('audio/3.mp3');
+      audio.playFromURL('https://www.oxfordlearnersdictionaries.com/media/english/uk_pron/a/a__/a__gb/a__gb_2.mp3');
+    }, 2000);
+  }
+
   render () {
     return (
       <View style={styles.mainContainer}>
