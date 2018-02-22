@@ -1,0 +1,1353 @@
+[
+  {
+    "group": "Diphthongs",
+    "folder": "Dipthongs",
+    "sounds": [
+      {
+        "symbol": "ɪə",
+        "video": "I4CLJKRGdXk",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "here",
+            "audio": "here.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "near",
+            "audio": "near.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "idea",
+            "audio": "idea.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ʊə",
+        "video": "WWoPzkUIoQc",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "tour",
+            "audio": "tour.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "cure",
+            "audio": "cure.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "pure",
+            "audio": "pure.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "aɪ",
+        "video": "yR8bGtvKfjA",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "high",
+            "audio": "high.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "eye",
+            "audio": "eye.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "pie",
+            "audio": "pie.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ɔɪ",
+        "video": "EI0stj8m6PI",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "boy",
+            "audio": "boy.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "avoid",
+            "audio": "avoid.mp3",
+            "bold": [
+              3,
+              4
+            ]
+          },
+          {
+            "word": "voice",
+            "audio": "voice.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "əʊ",
+        "video": "n2lJsznHzYQ",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "hello",
+            "audio": "hello.mp3",
+            "bold": [
+              4
+            ]
+          },
+          {
+            "word": "although",
+            "audio": "although.mp3",
+            "bold": [
+              4,
+              5,
+              6,
+              7
+            ]
+          },
+          {
+            "word": "toast",
+            "audio": "toast.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "eə",
+        "video": "QePebeTYD14",
+        "audio": "6.mp3",
+        "sample": [
+          {
+            "word": "where",
+            "audio": "where.mp3",
+            "bold": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "word": "bear",
+            "audio": "bear.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "hair",
+            "audio": "hair.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "aʊ",
+        "video": "F2XXL7JT600",
+        "audio": "7.mp3",
+        "sample": [
+          {
+            "word": "how",
+            "audio": "how.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "house",
+            "audio": "house.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "cloud",
+            "audio": "cloud.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "eɪ",
+        "video": "iDGKm1mNVnU",
+        "audio": "8.mp3",
+        "sample": [
+          {
+            "word": "make",
+            "audio": "make.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "weigh",
+            "audio": "weigh.mp3",
+            "bold": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          {
+            "word": "they",
+            "audio": "they.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Voiceless Consonants",
+    "folder": "Voiceless_Consonants",
+    "sounds": [
+      {
+        "symbol": "p",
+        "video": "",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "pack",
+            "audio": "pack.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "pin",
+            "audio": "pin.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "happen",
+            "audio": "happen.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "t",
+        "video": "",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "tie",
+            "audio": "tie.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "to",
+            "audio": "to.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "hotter",
+            "audio": "hotter.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "tʃ",
+        "video": "",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "chicken",
+            "audio": "chicken.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "nature",
+            "audio": "nature.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "church",
+            "audio": "church.mp3",
+            "bold": [
+              0,
+              1,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "k",
+        "video": "",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "class",
+            "audio": "class.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "pack",
+            "audio": "pack.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "call",
+            "audio": "call.mp3",
+            "bold": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "f",
+        "video": "",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "foot",
+            "audio": "foot.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "few",
+            "audio": "few.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "phase",
+            "audio": "phase.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "θ",
+        "video": "",
+        "audio": "6.mp3",
+        "sample": [
+          {
+            "word": "throw",
+            "audio": "throw.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "think",
+            "audio": "think.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "bath",
+            "audio": "bath.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "s",
+        "video": "",
+        "audio": "7.mp3",
+        "sample": [
+          {
+            "word": "sing",
+            "audio": "sing.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "sell",
+            "audio": "sell.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "ice",
+            "audio": "ice.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ʃ",
+        "video": "",
+        "audio": "8.mp3",
+        "sample": [
+          {
+            "word": "shoe",
+            "audio": "shoe.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "fish",
+            "audio": "fish.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "nation",
+            "audio": "nation.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Voiced Consonants",
+    "folder": "Voiced_Consonants",
+    "sounds": [
+      {
+        "symbol": "b",
+        "video": "",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "back",
+            "audio": "back.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "bin",
+            "audio": "bin.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "cab",
+            "audio": "cab.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "d",
+        "video": "",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "do",
+            "audio": "do.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "die",
+            "audio": "die.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "had",
+            "audio": "had.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "dʒ",
+        "video": "",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "judge",
+            "audio": "judge.mp3",
+            "bold": [
+              3,
+              4
+            ]
+          },
+          {
+            "word": "larger",
+            "audio": "larger.mp3",
+            "bold": [
+              3
+            ]
+          },
+          {
+            "word": "gym",
+            "audio": "gym.mp3",
+            "bold": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "g",
+        "video": "",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "glass",
+            "audio": "glass.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "girl",
+            "audio": "girl.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "pig",
+            "audio": "pig.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "v",
+        "video": "",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "van",
+            "audio": "van.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "view",
+            "audio": "view.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "cover",
+            "audio": "cover.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ð",
+        "video": "",
+        "audio": "6.mp3",
+        "sample": [
+          {
+            "word": "though",
+            "audio": "though.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "this",
+            "audio": "this.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "father",
+            "audio": "father.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "z",
+        "video": "",
+        "audio": "7.mp3",
+        "sample": [
+          {
+            "word": "zoo",
+            "audio": "zoo.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "shoes",
+            "audio": "shoes.mp3",
+            "bold": [
+              4
+            ]
+          },
+          {
+            "word": "lazy",
+            "audio": "lazy.mp3",
+            "bold": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ʒ",
+        "video": "",
+        "audio": "8.mp3",
+        "sample": [
+          {
+            "word": "measure",
+            "audio": "measure.mp3",
+            "bold": [
+              3
+            ]
+          },
+          {
+            "word": "vision",
+            "audio": "vision.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "leisure",
+            "audio": "leisure.mp3",
+            "bold": [
+              3
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Other Consonants",
+    "folder": "Other_Consonants",
+    "sounds": [
+      {
+        "symbol": "m",
+        "video": "",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "man",
+            "audio": "man.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "camera",
+            "audio": "camera.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "room",
+            "audio": "room.mp3",
+            "bold": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "n",
+        "video": "",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "sun",
+            "audio": "sun.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "know",
+            "audio": "know.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          },
+          {
+            "word": "never",
+            "audio": "never.mp3",
+            "bold": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ŋ",
+        "video": "",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "sing",
+            "audio": "sing.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "thing",
+            "audio": "thing.mp3",
+            "bold": [
+              4,
+              5
+            ]
+          },
+          {
+            "word": "going",
+            "audio": "going.mp3",
+            "bold": [
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "h",
+        "video": "",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "hot",
+            "audio": "hot.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "hill",
+            "audio": "hill.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "heavy",
+            "audio": "heavy.mp3",
+            "bold": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "l",
+        "video": "",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "lot",
+            "audio": "lot.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "love",
+            "audio": "love.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "little",
+            "audio": "little.mp3",
+            "bold": [
+              0,
+              4,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "r",
+        "video": "",
+        "audio": "6.mp3",
+        "sample": [
+          {
+            "word": "red",
+            "audio": "red.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "hurry",
+            "audio": "hurry.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "write",
+            "audio": "write.mp3",
+            "bold": [
+              0,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "w",
+        "video": "",
+        "audio": "7.mp3",
+        "sample": [
+          {
+            "word": "wet",
+            "audio": "wet.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "walk",
+            "audio": "walk.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "work",
+            "audio": "work.mp3",
+            "bold": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "j",
+        "video": "",
+        "audio": "8.mp3",
+        "sample": [
+          {
+            "word": "yet",
+            "audio": "yet.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "usual",
+            "audio": "usual.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "queue",
+            "audio": "queue.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Short Vowels",
+    "folder": "Short_Vowels",
+    "sounds": [
+      {
+        "symbol": "ɪ",
+        "video": "",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "ship",
+            "audio": "ship.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "bit",
+            "audio": "bit.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "gym",
+            "audio": "gym.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ʊ",
+        "video": "",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "put",
+            "audio": "put.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "took",
+            "audio": "took.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "could",
+            "audio": "could.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ʌ",
+        "video": "",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "cut",
+            "audio": "cut.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "up",
+            "audio": "up.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "love",
+            "audio": "love.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ɒ",
+        "video": "",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "hot",
+            "audio": "hot.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "what",
+            "audio": "what.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "want",
+            "audio": "want.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ə",
+        "video": "",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "better",
+            "audio": "better.mp3",
+            "bold": [
+              5,
+              6
+            ]
+          },
+          {
+            "word": "about",
+            "audio": "about.mp3",
+            "bold": [
+              0
+            ]
+          },
+          {
+            "word": "singer",
+            "audio": "singer.mp3",
+            "bold": [
+              5,
+              6
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "e",
+        "video": "",
+        "audio": "6.mp3",
+        "sample": [
+          {
+            "word": "bed",
+            "audio": "bed.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "said",
+            "audio": "said.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "head",
+            "audio": "head.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "æ",
+        "video": "",
+        "audio": "7.mp3",
+        "sample": [
+          {
+            "word": "cat",
+            "audio": "cat.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "flat",
+            "audio": "flat.mp3",
+            "bold": [
+              2
+            ]
+          },
+          {
+            "word": "land",
+            "audio": "land.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Long Vowels",
+    "folder": "Long_Vowels",
+    "sounds": [
+      {
+        "symbol": "iː",
+        "video": "",
+        "audio": "1.mp3",
+        "sample": [
+          {
+            "word": "sheep",
+            "audio": "sheep.mp3",
+            "bold": [
+              2,
+              3
+            ]
+          },
+          {
+            "word": "read",
+            "audio": "read.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "key",
+            "audio": "key.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "uː",
+        "video": "",
+        "audio": "2.mp3",
+        "sample": [
+          {
+            "word": "boot",
+            "audio": "boot.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "food",
+            "audio": "food.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "rude",
+            "audio": "rude.mp3",
+            "bold": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ɑː",
+        "video": "",
+        "audio": "3.mp3",
+        "sample": [
+          {
+            "word": "calm",
+            "audio": "calm.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "heart",
+            "audio": "heart.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          },
+          {
+            "word": "laugh",
+            "audio": "laugh.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ɔː",
+        "video": "",
+        "audio": "4.mp3",
+        "sample": [
+          {
+            "word": "fork",
+            "audio": "fork.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "more",
+            "audio": "more.mp3",
+            "bold": [
+              1
+            ]
+          },
+          {
+            "word": "horse",
+            "audio": "horse.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "symbol": "ɜː",
+        "video": "",
+        "audio": "5.mp3",
+        "sample": [
+          {
+            "word": "bird",
+            "audio": "bird.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "word",
+            "audio": "word.mp3",
+            "bold": [
+              1,
+              2
+            ]
+          },
+          {
+            "word": "heard",
+            "audio": "heard.mp3",
+            "bold": [
+              1,
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

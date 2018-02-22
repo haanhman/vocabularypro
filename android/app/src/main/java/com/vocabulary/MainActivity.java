@@ -1,6 +1,8 @@
 package com.vocabulary;
 
 import com.facebook.react.ReactActivity;
+import com.inprogress.reactnativeyoutube.ReactNativeYouTube;
+import com.zmxv.RNSound.RNSoundPackage;
 
 public class MainActivity extends ReactActivity {
 
