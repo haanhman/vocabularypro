@@ -1,41 +1,73 @@
-import React, { Component } from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
+import React, {Component} from 'react'
+import {ScrollView, Text, Image, View, TouchableOpacity} from 'react-native'
+import {Images} from '../Themes'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
-import {NativeModules} from 'react-native'
-var audio = NativeModules.MyAudio;
+// import {NativeModules} from 'react-native'
+// var audio = NativeModules.MyAudio;
+var Sound = require('react-native-sound');
 
 export default class LaunchScreen extends Component {
 
+  media = [];
+
   componentDidMount() {
-    console.log('Play audio');
-    audio.play('audio/avoid.mp3');
-    setTimeout(() => {
-      audio.play('audio/1.mp3');
-      audio.play('audio/2.mp3');
-      audio.play('audio/3.mp3');
-      audio.playFromURL('https://www.oxfordlearnersdictionaries.com/media/english/uk_pron/a/a__/a__gb/a__gb_2.mp3');
-    }, 2000);
+    Sound.setCategory('Ambient', true);
+    this.playSound('vo.mp3', Sound.MAIN_BUNDLE);
+    // this.playSound('3.mp3');
   }
 
-  render () {
+  stopAudio() {
+    console.log('length: ' + this.media.length);
+    if (this.media.length == 0) {
+      return;
+    }
+    this.media.map(item => {
+      item.stop();
+      item.release();
+    });
+  }
+
+  playAudio() {
+    const mp3Online = 'https://zmp3-mp3-s1-te-vnno-pt-1.zadn.vn/603a21fff7bb1ee547aa/6745492230489640910?authen=exp=1519432887~acl=/603a21fff7bb1ee547aa/*~hmac=30c067aad43036a0f2b89b510a60b926';
+    this.playSound(mp3Online);
+  }
+
+  playSound(name, basePath = '') {
+    var sound = new Sound(name, basePath, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // loaded successfully
+      console.log('duration in seconds: ' + sound.getDuration() + 'number of channels: ' + sound.getNumberOfChannels());
+
+      sound.play((e) => {
+        console.log(e);
+        sound.release();
+      });
+    });
+    this.media.push(sound);
+  }
+
+  render() {
     return (
       <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
+        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch'/>
         <ScrollView style={styles.container}>
           <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
+            <Image source={Images.launch} style={styles.logo}/>
           </View>
 
-          <View style={styles.section} >
-            <Image source={Images.ready} />
-            <Text style={styles.sectionText}>
-              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
-            </Text>
-          </View>
+          <TouchableOpacity style={{justifyContent: 'center'}} onPress={() => this.stopAudio()}>
+            <Text style={{textAlign: 'center', color: 'white'}}>Stop All audio</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={{justifyContent: 'center'}} onPress={() => this.playAudio()}>
+            <Text style={{textAlign: 'center', color: 'white'}}>Play</Text>
+          </TouchableOpacity>
 
         </ScrollView>
       </View>
