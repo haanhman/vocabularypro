@@ -11,7 +11,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: Colors.border,
+    borderColor: variable.cardBorderColor,
+    borderRadius: 2
   },
   symbol: {
     ...Fonts.style.h1

@@ -1,51 +1,54 @@
 import React, {Component} from 'react'
-import {ScrollView} from 'react-native'
-import {Container, Content, StyleProvider} from 'native-base';
+import {ScrollView, TouchableOpacity} from 'react-native'
+import {Container, Content} from 'native-base';
 import {connect} from 'react-redux'
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
 
-// Styles
-import styles from './Styles/style'
+
 import {Metrics} from '../../Themes'
 const ipaData = require('../../Assets/IPA/data.json');
-import getTheme from '../../../native-base-theme/components';
-import material from '../../../native-base-theme/variables/material';
 import CardItemStyle from '../../../native-base-theme/components/CardItem';
 import Group from './Components/Group'
+import IPAModal from './IPAModal'
 class IPAScreen extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      CardItemWidth: 0
+      CardItemWidth: 0,
+      playGroup: null,
+      play: false,
     }
   }
 
   componentDidMount() {
     const style = CardItemStyle();
-    let padding = material.deviceWidth - ((style.padding + style.paddingVertical) * 2);
+    let padding = Metrics.screenWidth - ((style.padding + style.paddingVertical) * 2);
     padding -= Metrics.baseMargin * 3;
     this.setState({CardItemWidth: padding / 4});
   }
 
+  playGroup(group) {
+    this.setState({playGroup: group, play: true});
+  }
+
   render() {
     return (
-      <StyleProvider style={getTheme(material)}>
-        <ScrollView>
-          <Container>
-            <Content>
-              {
-                ipaData.map((item, index) => {
-                  return (
-                    <Group key={index} item={item} soundWidth={this.state.CardItemWidth} />
-                  )
-                })
-              }
-            </Content>
-          </Container>
-        </ScrollView>
-      </StyleProvider>
+      <ScrollView>
+        <Container>
+          <Content>
+            {
+              ipaData.map((item, index) => {
+                return (
+                  <TouchableOpacity key={index} onPress={() => this.playGroup(item)}>
+                    <Group item={item} soundWidth={this.state.CardItemWidth} />
+                  </TouchableOpacity>
+                )
+              })
+            }
+          </Content>
+          <IPAModal group={this.state.playGroup} visible={this.state.play}/>
+        </Container>
+      </ScrollView>
     )
   }
 }
