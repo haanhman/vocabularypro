@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import {View, Text} from 'native-base';
 import styles from '../Styles/style'
-function renderSample(sample) {
+function renderSample(sample, justify = 'flex-end') {
   const {word, bold} = sample;
   let letter = [];
   for (let i = 0; i < word.length; i++) {
     letter.push(word[i]);
   }
   return (
-    <View style={{flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 3}}>
+    <View style={{flex: 1, justifyContent: justify, alignItems: 'center', paddingBottom: 3}}>
       <View style={{flexDirection: 'row'}}>
         {
           letter.map((c, index) => {

@@ -30,7 +30,7 @@ export default class Video extends Component {
         onChangeQuality={e => this.setState({quality: e.quality})}
         onError={e => this.setState({error: e.error})}
 
-        style={{alignSelf: 'stretch', height: 300}}
+        style={{alignSelf: 'stretch', height: 178}}
       />
     )
   }
