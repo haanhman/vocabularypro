@@ -1,42 +1,43 @@
 import React, {Component} from 'react'
 import YouTube from 'react-native-youtube'
+import {View, Spinner} from 'native-base'
 export default class Video extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      playStatus: true,
+      initYoutube: false
+    }
   }
 
   onChangeState = (e) => {
     const {state} = e;
-    // if (state == 'buffering' && !this.state.seekToCall) {
-    //   if(this.state.sub == '') {
-    //     this.setState({sub: 'Loading subtitle...'});
-    //   }
-    //   this.youtube.seekTo(137);
-    //   this.setState({seekToCall: true});
-    // }
-    this.setState({status: e.state})
-    console.log(e);
+    if (state == 'playing') {
+      this.setState(e => ({playStatus: true}));
+    }
+    this.setState({status: e.state});
   }
 
 
   stopVideo() {
-    this.youtube.pauseVideo();
+    this.setState(e => ({playStatus: !e.playStatus}));
   }
 
   componentDidMount() {
-    console.log(this.youtube);
+    setTimeout(() => {
+      this.setState({initYoutube: true});
+    }, 100);
   }
 
-
-  render() {
-
-    return (
-      <YouTube
+  renderYoutubePlayer() {
+    let player = null;
+    if (this.state.initYoutube) {
+      player = <YouTube
         apiKey={'AIzaSyDELqju3e3MnUIxCKOc1RAZG7QLCTvhghY'}
         ref={(ref) => this.youtube = ref}
         videoId={this.props.vid}   // The YouTube video ID
-        play={false}             // control playback of video with true/false
+        play={this.state.playStatus}             // control playback of video with true/false
         fullscreen={false}       // control whether the video should play in fullscreen or inline
         loop={false}             // control whether the video should loop when ended
 
@@ -47,6 +48,19 @@ export default class Video extends Component {
 
         style={{alignSelf: 'stretch', height: 178}}
       />
+    }
+    return player;
+  }
+
+  render() {
+
+    return (
+      <View>
+        {
+          (this.state.initYoutube && this.state.isReady) ? null : <Spinner color='green' />
+        }
+        {this.renderYoutubePlayer()}
+      </View>
     )
   }
 }

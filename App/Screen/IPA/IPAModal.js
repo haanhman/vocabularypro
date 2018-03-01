@@ -30,15 +30,10 @@ class IPAModal extends Component {
 
     bodyHeight = bodyHeight / 6 * 4;
     bodyHeight -= TabBarStyle.height + 4;
-    this.setState({bodyHeight});
-
-
-    this.setState({symbolHeight});
-
     let symbolWidth = (Metrics.screenWidth - 20);
     symbolWidth -= Metrics.baseMargin * 3;
     symbolWidth /= 4;
-    this.setState({symbolWidth});
+    this.setState({bodyHeight, symbolHeight, symbolWidth});
   }
 
   changeSound(index) {
@@ -55,7 +50,6 @@ class IPAModal extends Component {
   }
 
   onChangeTab() {
-    console.log('currentPage: ' + this.tabs.state.currentPage)
     if(this.tabs.state.currentPage == 0) {
       if(this.youtube != undefined) {
         this.youtube.stopVideo();
@@ -87,6 +81,7 @@ class IPAModal extends Component {
           <View style={styles.container}>
             <TouchableOpacity style={styles.closeBtn} onPress={() => {
               this.stopAllSound();
+              this.setState({index: 0});
               this.props.close();
             }}>
               <Icon name={'ios-close-circle-outline'} size={Metrics.icons.medium} style={{color: 'white'}}></Icon>

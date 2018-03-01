@@ -16,7 +16,7 @@ class IPAScreen extends Component {
     this.state = {
       CardItemWidth: 0,
       playGroup: null,
-      play: false,
+      play: false
     }
   }
 
