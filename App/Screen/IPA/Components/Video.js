@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import YouTube from 'react-native-youtube'
 import {View, Spinner} from 'native-base'
+import variable from '../../../../native-base-theme/variables/platform';
 export default class Video extends Component {
 
   constructor(props) {
@@ -57,7 +58,7 @@ export default class Video extends Component {
     return (
       <View>
         {
-          (this.state.initYoutube && this.state.isReady) ? null : <Spinner color='green' />
+          (this.state.initYoutube && this.state.isReady) ? null : <Spinner color={variable.mainBackground} />
         }
         {this.renderYoutubePlayer()}
       </View>

@@ -36,7 +36,7 @@ class IPAScreen extends Component {
   }
 
   backAction() {
-    console.log('back');
+    this.props.navigation.goBack();
   }
 
   render() {

@@ -8,6 +8,7 @@ import PlaySound from './Components/PlaySound'
 import {Metrics} from '../../Themes'
 import TabBar from '../../../native-base-theme/components/TabBar'
 import commonColor from '../../../native-base-theme/variables/commonColor'
+import variable from '../../../native-base-theme/variables/platform'
 import Icon from 'react-native-vector-icons/Ionicons'
 class IPAModal extends Component {
   timeOut = null;
@@ -91,7 +92,7 @@ class IPAModal extends Component {
             </View>
             <View style={styles.body}>
               <Content style={styles.wapper}>
-                <Tabs ref={c => this.tabs = c} locked={true} initialPage={0} onChangeTab={() => this.onChangeTab()}>
+                <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true} initialPage={0} onChangeTab={() => this.onChangeTab()}>
                   <Tab heading="Listen" style={{height: this.state.bodyHeight}}>
                     <PlaySound audioPath={group.folder} ref={c => this.listen = c} sound={sound}/>
                   </Tab>
