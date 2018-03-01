@@ -4,6 +4,7 @@ import styles from '../Styles/style'
 import Sound from './Sound'
 import {Metrics} from '../../../Themes'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import commonColor from '../../../../native-base-theme/variables/commonColor'
 export default class Group extends Component {
 
   render () {
@@ -15,7 +16,7 @@ export default class Group extends Component {
             <Text>{item.group}</Text>
           </Left>
           <Right style={{flex: 1}}>
-            <Icon name={'play-circle'} style={{color: 'red'}} size={Metrics.icons.small}/>
+            <Icon name={'play-circle'} style={{color: commonColor.brandDanger}} size={Metrics.icons.small}/>
           </Right>
         </View>
         <CardItem style={{flexWrap: 'wrap'}}>

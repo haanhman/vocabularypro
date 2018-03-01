@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native'
 import {ApplicationStyles, Fonts, Metrics, Colors} from '../../../Themes/'
 import variable from '../../../../native-base-theme/variables/platform';
-
+import commonColor from '../../../../native-base-theme/variables/commonColor'
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   symbolWapper: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   bold: {
-    color: 'red',
+    color: commonColor.brandDanger,
     fontWeight: 'bold'
   }
 })

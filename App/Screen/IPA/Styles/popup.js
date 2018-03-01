@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-// import {ApplicationStyles} from '../../../Themes/'
+import {Metrics} from '../../../Themes/'
 // import variable from '../../../../native-base-theme/variables/platform';
 export default StyleSheet.create({
   container: {
@@ -24,5 +24,11 @@ export default StyleSheet.create({
   },
   bottom: {
     flex: 1
+  },
+  closeBtn: {
+    position: 'absolute',
+    top: Metrics.baseMargin,
+    right: Metrics.baseMargin,
+    zIndex: 999
   }
 })

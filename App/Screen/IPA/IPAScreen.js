@@ -31,6 +31,10 @@ class IPAScreen extends Component {
     this.setState({playGroup: group, play: true});
   }
 
+  closeModal() {
+    this.setState({playGroup: null, play: false});
+  }
+
   render() {
     return (
       <ScrollView>
@@ -46,7 +50,7 @@ class IPAScreen extends Component {
               })
             }
           </Content>
-          <IPAModal group={this.state.playGroup} visible={this.state.play}/>
+          <IPAModal close={() => this.closeModal()} group={this.state.playGroup} visible={this.state.play}/>
         </Container>
       </ScrollView>
     )
