@@ -7,25 +7,72 @@ import Video from './Components/Video'
 import PlaySound from './Components/PlaySound'
 import {Metrics} from '../../Themes'
 import TabBar from '../../../native-base-theme/components/TabBar'
+import commonColor from '../../../native-base-theme/variables/commonColor'
 import Icon from 'react-native-vector-icons/Ionicons'
 class IPAModal extends Component {
+  timeOut = null;
   constructor(props) {
     super(props);
     this.state = {
-      index: 2,
-      bodyHeight: 0
+      index: 0,
+      bodyHeight: 0,
+      symbolHeight: 0,
+      symbolWidth: 0,
     }
   }
 
   componentDidMount() {
     const TabBarStyle = TabBar();
     let bodyHeight = Metrics.screenHeight - 20;
-    bodyHeight = bodyHeight/6 * 4;
+    let symbolHeight = bodyHeight / 6;
+    symbolHeight -= Metrics.baseMargin * 2
+    symbolHeight /= 2;
+
+    bodyHeight = bodyHeight / 6 * 4;
     bodyHeight -= TabBarStyle.height + 4;
     this.setState({bodyHeight});
+
+
+    this.setState({symbolHeight});
+
+    let symbolWidth = (Metrics.screenWidth - 20);
+    symbolWidth -= Metrics.baseMargin * 3;
+    symbolWidth /= 4;
+    this.setState({symbolWidth});
   }
 
+  changeSound(index) {
+    this.stopAllSound();
+    this.setState({index});
+    if(this.tabs.state.currentPage == 0) {
+      this.playSoundAudio();
+    }
+  }
 
+  stopAllSound() {
+    clearTimeout(this.timeOut);
+    this.listen.stopAllSound();
+  }
+
+  onChangeTab() {
+    console.log('currentPage: ' + this.tabs.state.currentPage)
+    if(this.tabs.state.currentPage == 0) {
+      if(this.youtube != undefined) {
+        this.youtube.stopVideo();
+      }
+    }
+    if(this.tabs.state.currentPage == 1) {
+      this.stopAllSound();
+      return;
+    }
+    this.playSoundAudio();
+  }
+
+  playSoundAudio() {
+    this.timeOut = setTimeout(() => {
+      this.listen.playAllSound();
+    }, 1000);
+  }
 
   render() {
     const {group} = this.props;
@@ -33,17 +80,13 @@ class IPAModal extends Component {
       return null;
     }
     const sound = group.sounds[this.state.index];
-    var timeOut = setTimeout(() => {
-      this.listen.playAllSound();
-    }, 2000);
     return (
       <Container>
         <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
-      }}>
+        }}>
           <View style={styles.container}>
             <TouchableOpacity style={styles.closeBtn} onPress={() => {
-              clearTimeout(timeOut);
-              this.listen.stopAllSound();
+              this.stopAllSound();
               this.props.close();
             }}>
               <Icon name={'ios-close-circle-outline'} size={Metrics.icons.medium} style={{color: 'white'}}></Icon>
@@ -53,18 +96,38 @@ class IPAModal extends Component {
             </View>
             <View style={styles.body}>
               <Content style={styles.wapper}>
-                <Tabs initialPage={0}>
+                <Tabs ref={c => this.tabs = c} locked={true} initialPage={0} onChangeTab={() => this.onChangeTab()}>
                   <Tab heading="Listen" style={{height: this.state.bodyHeight}}>
-                    <PlaySound audioPath={group.folder} ref={c => this.listen = c} sound={sound} />
+                    <PlaySound audioPath={group.folder} ref={c => this.listen = c} sound={sound}/>
                   </Tab>
                   <Tab heading="Video">
-                    <Video vid={sound.video} />
+                    <Video ref={c => this.youtube = c} vid={sound.video}/>
                   </Tab>
                 </Tabs>
               </Content>
             </View>
             <View style={styles.bottom}>
-              <Text>quay lai</Text>
+              {
+                group.sounds.map((s, index) => {
+                  return (
+                    <TouchableOpacity key={index} onPress={() => this.changeSound(index)}>
+                      <View style={[
+                        styles.symbol,
+                        {
+                          height: this.state.symbolHeight,
+                          width: this.state.symbolWidth
+                        },
+                        (index + 1) % 4 == 0 ? {marginRight: 0} : {}
+                      ]}>
+                        <Text style={[
+                          styles.symbolText,
+                          this.state.index == index ? {color: commonColor.brandDanger} : {}
+                        ]}>/{s.symbol}/</Text>
+                      </View>
+                    </TouchableOpacity>
+                  )
+                })
+              }
             </View>
           </View>
         </Modal>

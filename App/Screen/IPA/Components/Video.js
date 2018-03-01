@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import YouTube from 'react-native-youtube'
 export default class Video extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   onChangeState = (e) => {
     const {state} = e;
     // if (state == 'buffering' && !this.state.seekToCall) {
@@ -12,7 +16,18 @@ export default class Video extends Component {
     //   this.setState({seekToCall: true});
     // }
     this.setState({status: e.state})
+    console.log(e);
   }
+
+
+  stopVideo() {
+    this.youtube.pauseVideo();
+  }
+
+  componentDidMount() {
+    console.log(this.youtube);
+  }
+
 
   render() {
 

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native'
 import {Metrics} from '../../../Themes/'
-// import variable from '../../../../native-base-theme/variables/platform';
+import variable from '../../../../native-base-theme/variables/platform';
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -23,12 +23,27 @@ export default StyleSheet.create({
     flex: 4
   },
   bottom: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   closeBtn: {
     position: 'absolute',
     top: Metrics.baseMargin,
     right: Metrics.baseMargin,
-    zIndex: 999
+    zIndex: 999,
+  },
+  symbol: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: variable.cardBorderColor,
+    marginRight: Metrics.baseMargin,
+    marginTop: Metrics.baseMargin,
+    borderRadius: 5,
+    backgroundColor: 'white'
+  },
+  symbolText: {
+    fontSize: 20
   }
 })
