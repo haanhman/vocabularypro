@@ -4,7 +4,7 @@ import variable from '../../../../native-base-theme/variables/platform';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#02b5cc',
+    backgroundColor: variable.mainBackground,
     padding: 10
   },
   wapper: {

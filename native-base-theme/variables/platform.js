@@ -116,6 +116,9 @@ export default {
     return this.fontSizeBase * 1.4;
   },
 
+  //My variable
+  mainBackground: '#02b5cc',
+
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
   footerDefaultBg: platform === "ios" ? "#F8F8F8" : "#4179F7",
@@ -131,7 +134,7 @@ export default {
 
   // Header
   toolbarBtnColor: platform === "ios" ? "#007aff" : "#fff",
-  toolbarDefaultBg: platform === "ios" ? "#F8F8F8" : "#3F51B5",
+  toolbarDefaultBg: "#02b5cc",
   toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: platform === "ios" ? "#CECDD2" : "#fff",
