@@ -13,16 +13,17 @@ class VocabularyScreen extends Component {
   }
 
   componentDidMount() {
-    this.sql.select('SELECT * FROM groups', undefined, (rows) => {
-      console.log(rows);
-    }, (error) => {
-      console.log('SQL Error: ' + error);
-    });
-    // this.sql.insert('groups', {name: 'A-Z'}, (success) => {
-    //   console.log('Insert thanh cong');
-    // }, (error) => {
-    //   console.log('SQL Error: ' + error);
+    // this.sql.select('SELECT * FROM groups', undefined, (rows) => {
+    //   console.log(rows);
     // });
+    // this.sql.insert('groups', {name: 'MAN22'}, (success) => {
+    //   console.log('Insert thanh cong');
+    // });
+
+    this.sql.update('groups', {name: 'anhmantk'}, 'id > 10', (status) => {
+      console.log('Update thanh cong');
+    });
+
   }
 
   backAction() {
