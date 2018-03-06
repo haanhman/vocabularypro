@@ -28,3 +28,18 @@ export const getImageHeight = (width, realWidth, realHeight) => {
 export const getImageWidth = (height, realWidth, realHeight) => {
   return height * realWidth / realHeight;
 }
+
+
+export function chunkArray(myArray, chunk_size) {
+  var results = [];
+
+  while (myArray.length) {
+    results.push(myArray.splice(0, chunk_size));
+  }
+
+  return results;
+}
+
+export function ucFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
