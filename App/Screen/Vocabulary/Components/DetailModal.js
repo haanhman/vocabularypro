@@ -7,7 +7,42 @@ import variable from '../../../../native-base-theme/variables/platform'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import {Metrics} from '../../../Themes'
 import UseTab from './UseTab'
+import ImageTab from './ImageTab'
+import SearchImageAPI from '../../../Services/SearchImageAPI'
+
 export default class DetailModal extends Component {
+
+  api = null;
+  token = '';
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    }
+    this.api = new SearchImageAPI();
+  }
+
+  searchImage() {
+    console.log('seach image');
+    if (this.token == '') {
+      this.api.getToken((token) => {
+        this.token = token;
+        this.searchImageNow();
+      });
+    } else {
+      this.searchImageNow();
+    }
+  }
+
+  searchImageNow() {
+    this.setState({images: []});
+    this.api.search(this.props.wordName, this.token, (json) => {
+      console.log(json.results);
+      this.setState({images: json.results});
+    })
+  }
+
 
   onChangeTab() {
     console.log('Tab index: ' + this.tabs.state.currentPage);
@@ -15,34 +50,39 @@ export default class DetailModal extends Component {
 
   renderTabVideo(totalVideo) {
     return (
-      <Tab heading={'Video ('+ totalVideo +')'}>
-
+      <Tab heading={'Video (' + totalVideo + ')'}>
+        <Content><Text>Video</Text></Content>
       </Tab>
     );
   }
 
   renderData() {
     const {word} = this.props;
-    if(word == null) {
+    if (word == null) {
       return <Spinner color={commonColor.brandDanger}/>;
     }
     const videoData = JSON.parse(word.video_data);
     const totalVideo = videoData.uk.length + videoData.us.length;
     return (
-      <Content style={styles.wapper}>
-        <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true} initialPage={0} onChangeTab={() => this.onChangeTab()}>
+      <View style={styles.wapper}>
+
+        <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true}
+              initialPage={0} onChangeTab={() => this.onChangeTab()}>
           <Tab heading="Audio">
-            <UseTab word={word} />
+
+            <UseTab word={word}/>
           </Tab>
           <Tab heading="Images">
-
+            <Content>
+              <ImageTab images={this.state.images}/>
+            </Content>
           </Tab>
           {
             totalVideo > 0 ? this.renderTabVideo(totalVideo) : null
           }
 
         </Tabs>
-      </Content>
+      </View>
     )
   }
 
@@ -57,8 +97,11 @@ export default class DetailModal extends Component {
       }}>
         <Container>
           <View style={styles.container}>
-            <TouchableOpacity style={styles.closeBtn} onPress={() => {this.closePopup()}}>
-              <Ionicons name={'ios-close-circle-outline'} size={Metrics.icons.medium} style={{color: 'white'}}></Ionicons>
+            <TouchableOpacity style={styles.closeBtn} onPress={() => {
+              this.closePopup()
+            }}>
+              <Ionicons name={'ios-close-circle-outline'} size={Metrics.icons.medium}
+                        style={{color: 'white'}}></Ionicons>
             </TouchableOpacity>
             <View style={styles.top}>
               <H1 style={styles.name}>{this.props.wordName}</H1>

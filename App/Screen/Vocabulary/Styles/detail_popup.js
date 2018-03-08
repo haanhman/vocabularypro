@@ -11,7 +11,7 @@ export default StyleSheet.create({
   wapper: {
     backgroundColor: 'white',
     borderRadius: 5,
-    flex: 1,
+    flex: 1
   },
   closeBtn: {
     position: 'absolute',

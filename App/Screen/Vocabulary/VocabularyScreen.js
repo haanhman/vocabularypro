@@ -87,7 +87,8 @@ class VocabularyScreen extends Component {
   }
 
   selectVocabulary(item) {
-    this.setState({words: [], selectedWord: item, showDetail: true});
+    this.setState({selectedWord: item, showDetail: true});
+    this.detail.searchImage();
     this.wordModel.getWordDetail(item.id, (row) => {
       this.setState({fetchDetail: true, selectedWord: row});
     })
@@ -102,7 +103,7 @@ class VocabularyScreen extends Component {
 
   closeDetailPopup() {
     this.setState({showDetail: false, fetchDetail: false});
-    this.getAllWord();
+    // this.getAllWord();
   }
 
   render() {
@@ -148,6 +149,7 @@ class VocabularyScreen extends Component {
           visible={this.state.showWordType}/>
 
         <DetailModal
+          ref={c => this.detail = c}
           close={() => {this.closeDetailPopup()}}
           wordName={this.state.selectedWord.name}
           word={this.state.fetchDetail ? this.state.selectedWord : null}

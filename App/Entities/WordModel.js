@@ -14,7 +14,7 @@ export default class WordModel extends Model {
     if(wordType > 0) {
       sql += " AND t1.word_type = " + wordType;
     }
-    sql+= " ORDER BY t1.id LIMIT 50";
+    sql+= " ORDER BY t1.id LIMIT 100";
     this.select(sql, [], (results) => {
       cb(results);
     })
