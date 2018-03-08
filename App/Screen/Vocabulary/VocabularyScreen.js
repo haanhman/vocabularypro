@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Container, Content, Header, Title, Left, Body, Button, Text, Icon} from 'native-base';
+import {View, Container, Spinner, Header, Title, Left, Body, Button, Text, Icon} from 'native-base';
 import {TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 
@@ -13,6 +13,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {Metrics} from '../../Themes'
 import styles from './Styles/style'
 import {ucFirst} from '../../Lib/global'
+import VocabularyList from './Components/VocabularyList'
+import commonColor from '../../../native-base-theme/variables/commonColor'
 
 class VocabularyScreen extends Component {
   groupModel = null;
@@ -24,6 +26,7 @@ class VocabularyScreen extends Component {
       showGroup: false,
       showWordType: false,
       groups: [],
+      showSpinner: true,
       words: [],
       wordType: [],
       selectedGroup: {id: 0, name: "All Groups"},
@@ -46,7 +49,7 @@ class VocabularyScreen extends Component {
 
   getAllWord() {
     this.wordModel.getAllWord(this.state.selectedGroup.id, this.state.selectedType.id, (results) => {
-      console.log(results.length);
+      this.setState({showSpinner: false, words: results});
     });
   }
 
@@ -55,7 +58,7 @@ class VocabularyScreen extends Component {
   }
 
   chooseGroup(item) {
-    this.setState({selectedGroup: item});
+    this.setState({showSpinner: true, words: [], selectedGroup: item});
     console.log('choose group: ' + JSON.stringify(item));
     setTimeout(() => {
       this.getAllWord();
@@ -63,7 +66,7 @@ class VocabularyScreen extends Component {
   }
 
   chooseType(item) {
-    this.setState({selectedType: item});
+    this.setState({showSpinner: true, words: [], selectedType: item});
     console.log('choose type: ' + JSON.stringify(item));
     setTimeout(() => {
       this.getAllWord();
@@ -76,6 +79,17 @@ class VocabularyScreen extends Component {
 
   showWordTypeModal(status = true) {
     this.setState({showWordType: status});
+  }
+
+  selectVocabulary(item) {
+    console.log(JSON.stringify(item));
+  }
+
+  renderVocabulary() {
+    if(this.state.showSpinner) {
+      return <Spinner color={commonColor.brandDanger} />
+    }
+    return <VocabularyList words={this.state.words} selectVocabulary={(item) => this.selectVocabulary(item)} />
   }
 
   render() {
@@ -91,18 +105,17 @@ class VocabularyScreen extends Component {
           <Title style={{color: 'white'}}>Vocabulary</Title>
           </Body>
         </Header>
-        <Content>
-          <View style={styles.buttonFunction}>
-            <TouchableOpacity onPress={() => this.showGroupModal(true)} style={styles.smallButton}>
-              <Entypo name={'folder'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
-              <Text>{this.state.selectedGroup.name}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.showWordTypeModal(true)} style={styles.smallButton}>
-              <MaterialCommunityIcons name={'format-list-bulleted-type'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
-              <Text>{ucFirst(this.state.selectedType.name)}</Text>
-            </TouchableOpacity>
-          </View>
-        </Content>
+        <View style={styles.buttonFunction}>
+          <TouchableOpacity onPress={() => this.showGroupModal(true)} style={styles.smallButton}>
+            <Entypo name={'folder'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
+            <Text>{this.state.selectedGroup.name}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.showWordTypeModal(true)} style={styles.smallButton}>
+            <MaterialCommunityIcons name={'format-list-bulleted-type'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
+            <Text>{ucFirst(this.state.selectedType.name)}</Text>
+          </TouchableOpacity>
+        </View>
+        {this.renderVocabulary()}
         <GroupModal
           chooseGroup={(item) => this.chooseGroup(item)}
           close={() => this.showGroupModal(false)}
