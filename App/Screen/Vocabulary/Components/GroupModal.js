@@ -9,7 +9,8 @@ export default class GroupModal extends Component {
 
   renderGroup() {
     const {groups} = this.props;
-    let data = Object.assign([], groups);;
+    let data = Object.assign([], groups);
+    ;
     if (data.length == 0) {
       return null;
     }
@@ -48,13 +49,13 @@ export default class GroupModal extends Component {
   }
 
   render() {
-    if(!this.props.visible) {
+    if (!this.props.visible) {
       return null;
     }
     return (
-      <Container>
-        <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
-        }}>
+      <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
+      }}>
+        <Container>
           <View style={styles.container}>
             <TouchableOpacity onPress={this.props.close} style={styles.closeBtn}>
               <Icon name={'ios-close-circle-outline'} size={Metrics.icons.medium} style={{color: 'white'}}></Icon>
@@ -66,13 +67,13 @@ export default class GroupModal extends Component {
             </View>
             <View style={styles.body}>
               <Content style={styles.wapper}>
-                  {this.renderGroup()}
+                {this.renderGroup()}
               </Content>
             </View>
             <View style={styles.bottom}/>
           </View>
-        </Modal>
-      </Container>
+        </Container>
+      </Modal>
     )
   }
 }

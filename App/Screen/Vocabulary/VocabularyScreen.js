@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Container, Spinner, Header, Title, Left, Body, Button, Text, Icon} from 'native-base';
+import {View, Container, Spinner, Header, Title, Left, Body, Button, Text, Icon, Content} from 'native-base';
 import {TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 
@@ -7,6 +7,7 @@ import GroupModel from '../../Entities/GroupModel'
 import WordTypeModel from '../../Entities/WordTypeModel'
 import WordModel from '../../Entities/WordModel'
 import GroupModal from './Components/GroupModal'
+import DetailModal from './Components/DetailModal'
 import WordTypeModal from './Components/WordTypeModal'
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -20,17 +21,21 @@ class VocabularyScreen extends Component {
   groupModel = null;
   wordTypeModel = null;
   wordModel = null;
+
   constructor(props) {
     super(props);
     this.state = {
       showGroup: false,
       showWordType: false,
-      groups: [],
       showSpinner: true,
+      showDetail: false,
+      fetchDetail: false,
+      groups: [],
       words: [],
       wordType: [],
       selectedGroup: {id: 0, name: "All Groups"},
       selectedType: {id: 0, name: "Word classes"},
+      selectedWord: {id: 0, name: ""}
     }
     this.groupModel = new GroupModel();
     this.wordTypeModel = new WordTypeModel();
@@ -82,14 +87,22 @@ class VocabularyScreen extends Component {
   }
 
   selectVocabulary(item) {
-    console.log(JSON.stringify(item));
+    this.setState({words: [], selectedWord: item, showDetail: true});
+    this.wordModel.getWordDetail(item.id, (row) => {
+      this.setState({fetchDetail: true, selectedWord: row});
+    })
   }
 
   renderVocabulary() {
-    if(this.state.showSpinner) {
-      return <Spinner color={commonColor.brandDanger} />
+    if (this.state.showSpinner) {
+      return <Spinner color={commonColor.brandDanger}/>
     }
-    return <VocabularyList words={this.state.words} selectVocabulary={(item) => this.selectVocabulary(item)} />
+    return <VocabularyList words={this.state.words} selectVocabulary={(item) => this.selectVocabulary(item)}/>
+  }
+
+  closeDetailPopup() {
+    this.setState({showDetail: false, fetchDetail: false});
+    this.getAllWord();
   }
 
   render() {
@@ -107,28 +120,40 @@ class VocabularyScreen extends Component {
         </Header>
         <View style={styles.buttonFunction}>
           <TouchableOpacity onPress={() => this.showGroupModal(true)} style={styles.smallButton}>
-            <Entypo name={'folder'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
+            <Entypo name={'folder'} size={Metrics.icons.small} style={styles.smallButton_Icon}/>
             <Text>{this.state.selectedGroup.name}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.showWordTypeModal(true)} style={styles.smallButton}>
-            <MaterialCommunityIcons name={'format-list-bulleted-type'} size={Metrics.icons.small} style={styles.smallButton_Icon} />
+            <MaterialCommunityIcons name={'format-list-bulleted-type'} size={Metrics.icons.small}
+                                    style={styles.smallButton_Icon}/>
             <Text>{ucFirst(this.state.selectedType.name)}</Text>
           </TouchableOpacity>
         </View>
-        {this.renderVocabulary()}
+        <Content>
+          {this.renderVocabulary()}
+        </Content>
+
         <GroupModal
           chooseGroup={(item) => this.chooseGroup(item)}
           close={() => this.showGroupModal(false)}
           groups={this.state.groups}
           selectedId={this.state.selectedGroup.id}
           visible={this.state.showGroup}/>
+
         <WordTypeModal
           chooseType={(item) => this.chooseType(item)}
           close={() => this.showWordTypeModal(false)}
           items={this.state.wordType}
           selectedId={this.state.selectedType.id}
           visible={this.state.showWordType}/>
+
+        <DetailModal
+          close={() => {this.closeDetailPopup()}}
+          wordName={this.state.selectedWord.name}
+          word={this.state.fetchDetail ? this.state.selectedWord : null}
+          visible={this.state.showDetail}/>
       </Container>
+
     )
   }
 }

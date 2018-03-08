@@ -9,10 +9,9 @@ import commonColor from '../../../../native-base-theme/variables/commonColor'
 export default class WordTypeModal extends Component {
 
 
-
   renderWordClasses() {
     const {items, selectedId} = this.props;
-    if(items.length == 0) {
+    if (items.length == 0) {
       return 0;
     }
     return items.map((item, index) => {
@@ -28,7 +27,9 @@ export default class WordTypeModal extends Component {
                 this.props.chooseType(item);
                 this.props.close();
               }}>
-                <MaterialCommunityIcons name={item.id == selectedId ? 'filter' : 'filter-outline'} size={Metrics.icons.medium} color={item.id == selectedId ? commonColor.brandDanger : 'gray'} />
+                <MaterialCommunityIcons name={item.id == selectedId ? 'filter' : 'filter-outline'}
+                                        size={Metrics.icons.medium}
+                                        color={item.id == selectedId ? commonColor.brandDanger : 'gray'}/>
               </TouchableOpacity>
             </Right>
 
@@ -45,7 +46,7 @@ export default class WordTypeModal extends Component {
   }
 
   renderSample(sample = []) {
-    if(sample.length == 0) {
+    if (sample.length == 0) {
       return null;
     }
     return (
@@ -62,14 +63,14 @@ export default class WordTypeModal extends Component {
   }
 
   render() {
-    if(!this.props.visible) {
+    if (!this.props.visible) {
       return null;
     }
 
     return (
-      <Container>
-        <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
-        }}>
+      <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
+      }}>
+        <Container>
           <View style={styles.container}>
 
             <Header>
@@ -85,8 +86,8 @@ export default class WordTypeModal extends Component {
 
             <ScrollView>{this.renderWordClasses()}</ScrollView>
           </View>
-        </Modal>
-      </Container>
+        </Container>
+      </Modal>
     )
   }
 }

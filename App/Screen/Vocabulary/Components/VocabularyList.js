@@ -22,13 +22,14 @@ class VocabularyList extends React.PureComponent {
     return (
       <View style={styles.row}>
         <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {this.props.selectVocabulary(item)}}>
-          <Left style={{flex: 4}}>
+          <Left style={{flex: 3}}>
             <Text style={styles.name}>{item.name}</Text>
             {
               item.phonic_us ? (<Text>/{item.phonic_us}/</Text>) : null
             }
           </Left>
-          <Right style={{flex: 1}}>
+          <Right style={{flex: 2, flexDirection: 'row', justifyContent: 'flex-end'}}>
+            <Text>{item.word_type}</Text>
             <MaterialIcons name='play-arrow' size={Metrics.icons.small} color={commonColor.brandDanger} />
           </Right>
         </TouchableOpacity>
