@@ -49,7 +49,7 @@ export default class VideoTab extends Component {
     if (state == 'playing') {
       this.captionInterval = setInterval(() => {
         this.showCaption();
-      }, 10);
+      }, 1000);
       this.setState(e => ({playStatus: true}));
     } else {
       clearInterval(this.captionInterval);
@@ -114,9 +114,7 @@ export default class VideoTab extends Component {
     if (!this.state.initYoutube) {
       return null;
     }
-
-    var parse = new DOMParser();
-    const sub = parse.parseFromString('The company&#39;s called TaikaBox.', 'text/html').body.innerText;
+    const sub = "go home and make a healthy one\nForget her, leave her in the institution";
 
     return (
       <View style={styles.caption}>
@@ -128,10 +126,9 @@ export default class VideoTab extends Component {
   showCaption() {
     const subtitleKeys = Object.keys(this.state.currentCaption);
     this.youtube.currentTime().then((time) => {
-      const now = time.toFixed(2)
-      if (now != this.currentTime && subtitleKeys.find(a => a == now)) {
-        this.currentTime = now;
-        this.setState({sub: this.state.currentCaption[now].text});
+      if (time != this.currentTime && subtitleKeys.find(a => a == time)) {
+        this.currentTime = time;
+        this.setState({sub: this.state.currentCaption[time].text});
       }
     });
   }

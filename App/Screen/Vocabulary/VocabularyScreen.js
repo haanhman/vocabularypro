@@ -130,9 +130,7 @@ class VocabularyScreen extends Component {
             <Text>{ucFirst(this.state.selectedType.name)}</Text>
           </TouchableOpacity>
         </View>
-        <Content>
-          {this.renderVocabulary()}
-        </Content>
+        {this.renderVocabulary()}
 
         <GroupModal
           chooseGroup={(item) => this.chooseGroup(item)}

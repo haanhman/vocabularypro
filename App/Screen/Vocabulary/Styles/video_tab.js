@@ -8,6 +8,7 @@ export default StyleSheet.create({
     padding: Metrics.baseMargin
   },
   subtitle: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }
 })
