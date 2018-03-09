@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {TouchableOpacity} from 'react-native';
-import {View, Text, H3} from 'native-base';
+import {Content, View, Text, H3} from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {Metrics} from '../../../Themes'
 import commonColor from '../../../../native-base-theme/variables/commonColor'
@@ -82,7 +82,7 @@ export default class UseTab extends Component {
     const {word} = this.props;
     const audioData = JSON.parse(word.audio_data);
     return (
-      <View style={styles.container}>
+      <Content>
 
         {this.renderAudio(audioData.uk, 'English')}
         {this.renderAudio(audioData.us, 'American English')}
@@ -91,7 +91,7 @@ export default class UseTab extends Component {
           {this.renderUseDetail(JSON.parse(word.use))}
         </View>
 
-      </View>
+      </Content>
     )
   }
 }

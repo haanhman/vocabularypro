@@ -8,8 +8,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import {Metrics} from '../../../Themes'
 import UseTab from './UseTab'
 import ImageTab from './ImageTab'
+import VideoTab from './VideoTab'
 import SearchImageAPI from '../../../Services/SearchImageAPI'
-
 export default class DetailModal extends Component {
 
   api = null;
@@ -51,7 +51,7 @@ export default class DetailModal extends Component {
   renderTabVideo(totalVideo) {
     return (
       <Tab heading={'Video (' + totalVideo + ')'}>
-        <Content><Text>Video</Text></Content>
+        <VideoTab word={this.props.word} />
       </Tab>
     );
   }
@@ -64,25 +64,18 @@ export default class DetailModal extends Component {
     const videoData = JSON.parse(word.video_data);
     const totalVideo = videoData.uk.length + videoData.us.length;
     return (
-      <View style={styles.wapper}>
-
-        <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true}
-              initialPage={0} onChangeTab={() => this.onChangeTab()}>
-          <Tab heading="Audio">
-
-            <UseTab word={word}/>
-          </Tab>
-          <Tab heading="Images">
-            <Content>
-              <ImageTab images={this.state.images}/>
-            </Content>
-          </Tab>
-          {
-            totalVideo > 0 ? this.renderTabVideo(totalVideo) : null
-          }
-
-        </Tabs>
-      </View>
+      <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true}
+            initialPage={0} onChangeTab={() => this.onChangeTab()}>
+        <Tab heading="Audio">
+          <UseTab word={word}/>
+        </Tab>
+        <Tab heading="Images">
+          <ImageTab images={this.state.images}/>
+        </Tab>
+        {
+          totalVideo > 0 ? this.renderTabVideo(totalVideo) : null
+        }
+      </Tabs>
     )
   }
 

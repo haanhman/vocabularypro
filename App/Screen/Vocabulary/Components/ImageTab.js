@@ -1,21 +1,38 @@
 import React, {Component} from 'react'
 import {ScrollView} from 'react-native';
-import {Container, Content, View, Text} from 'native-base';
+import {Content} from 'native-base';
 import styles from '../Styles/image_tab'
 import ImageListView from './ImageListView'
+import ImageSwiper from './ImageSwiper'
+
 export default class ImageTab extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      showSwiper: false,
+    }
+  }
   showSwiper(index) {
     console.log('image index: ' + index);
-    // this.props.swiper(true, this.state.images, index);
+    this.showImageSwiper(true, index);
+  }
+
+  showImageSwiper(status, index = 0) {
+    this.setState({showSwiper: status, index});
+  }
+
+  hideImageSwiper() {
+    this.showImageSwiper(false);
   }
 
   render() {
 
     return (
-      <View style={styles.container}>
+      <Content>
         <ImageListView showSwiper={(index) => this.showSwiper(index)} images={this.props.images}/>
-      </View>
-
+        <ImageSwiper index={this.state.index} close={() => this.hideImageSwiper()} images={this.props.images} visible={this.state.showSwiper}/>
+      </Content>
     )
   }
 }
