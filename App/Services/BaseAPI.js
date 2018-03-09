@@ -6,10 +6,10 @@ export const VALIDATE_CODE = 422;
 export default class BaseAPI {
   cancelToken = {};
   api = null;
-  constructor() {
+  constructor(baseURL) {
     this.api = apisauce.create({
       // base URL is read from the "constructor"
-      baseURL: 'https://www.googleapis.com/',
+      baseURL,
       // here are some default headers
       headers: {
         'Cache-Control': 'no-cache'

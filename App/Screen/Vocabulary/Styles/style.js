@@ -3,7 +3,8 @@ import {Metrics} from '../../../Themes'
 import commonColor from '../../../../native-base-theme/variables/commonColor'
 export default StyleSheet.create({
   buttonFunction: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginVertical: Metrics.baseMargin
   },
   smallButton: {
     flexDirection: 'row',

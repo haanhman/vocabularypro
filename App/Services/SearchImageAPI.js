@@ -3,6 +3,10 @@ import BaseAPI from './BaseAPI'
 
 export default class SearchImageAPI extends BaseAPI {
 
+  constructor() {
+    super('https://www.googleapis.com/');
+  }
+
   cx = '012765024062402930908:o-6v_muzdeu';
 
   getToken = (responseCallback) => {
@@ -23,7 +27,7 @@ export default class SearchImageAPI extends BaseAPI {
       key: 'AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY',
       rsz: 'filtered_cse',
       num: 20,
-      hl: 'vi',
+      hl: 'en',
       prettyPrint: false,
       source: 'gcsc',
       gss: '.com',

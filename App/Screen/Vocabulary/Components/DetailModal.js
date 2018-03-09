@@ -24,7 +24,6 @@ export default class DetailModal extends Component {
   }
 
   searchImage() {
-    console.log('seach image');
     if (this.token == '') {
       this.api.getToken((token) => {
         this.token = token;
@@ -38,7 +37,6 @@ export default class DetailModal extends Component {
   searchImageNow() {
     this.setState({images: []});
     this.api.search(this.props.wordName, this.token, (json) => {
-      console.log(json.results);
       this.setState({images: json.results});
     })
   }
@@ -65,7 +63,7 @@ export default class DetailModal extends Component {
     const totalVideo = videoData.uk.length + videoData.us.length;
     return (
       <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true}
-            initialPage={0} onChangeTab={() => this.onChangeTab()}>
+            initialPage={2} onChangeTab={() => this.onChangeTab()}>
         <Tab heading="Audio">
           <UseTab word={word}/>
         </Tab>
@@ -80,6 +78,7 @@ export default class DetailModal extends Component {
   }
 
   closePopup() {
+    this.setState({images: []});
     this.props.close();
   }
 
