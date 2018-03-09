@@ -130,9 +130,10 @@ export default class VideoTab extends Component {
   showCaption() {
     const subtitleKeys = Object.keys(this.state.currentCaption);
     this.youtube.currentTime().then((time) => {
-      if (time != this.currentTime && subtitleKeys.find(a => a == time)) {
-        this.currentTime = time;
-        this.setState({sub: this.state.currentCaption[time].text});
+      const t = parseInt(time);
+      if (t != this.currentTime && subtitleKeys.find(a => a == t)) {
+        this.currentTime = t;
+        this.setState({sub: this.state.currentCaption[t].text});
       }
     });
   }
@@ -181,6 +182,9 @@ export default class VideoTab extends Component {
   }
 
   stopVideo() {
+    if(this.youtube == undefined) {
+      return;
+    }
     clearInterval(this.captionInterval);
     this.setState({
       seekToCall: false,
@@ -209,6 +213,10 @@ export default class VideoTab extends Component {
     setTimeout(() => {
       this.loadCaption(true)
     }, 500);
+  }
+
+  pauseVideoNow() {
+    this.setState({playStatus: false});
   }
 
   pauseVideo() {

@@ -43,13 +43,14 @@ export default class DetailModal extends Component {
 
 
   onChangeTab() {
+    this.videoTab.pauseVideoNow();
     console.log('Tab index: ' + this.tabs.state.currentPage);
   }
 
   renderTabVideo(totalVideo) {
     return (
       <Tab heading={'Video (' + totalVideo + ')'}>
-        <VideoTab word={this.props.word} />
+        <VideoTab ref={c => this.videoTab = c} word={this.props.word} />
       </Tab>
     );
   }
@@ -63,7 +64,7 @@ export default class DetailModal extends Component {
     const totalVideo = videoData.uk.length + videoData.us.length;
     return (
       <Tabs tabBarUnderlineStyle={{backgroundColor: variable.mainBackground}} ref={c => this.tabs = c} locked={true}
-            initialPage={2} onChangeTab={() => this.onChangeTab()}>
+            initialPage={1} onChangeTab={() => this.onChangeTab()}>
         <Tab heading="Audio">
           <UseTab word={word}/>
         </Tab>
@@ -78,6 +79,7 @@ export default class DetailModal extends Component {
   }
 
   closePopup() {
+    this.videoTab.stopVideo();
     this.setState({images: []});
     this.props.close();
   }

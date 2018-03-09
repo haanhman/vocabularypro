@@ -5,14 +5,16 @@ import commonColor from '../../../../native-base-theme/variables/commonColor';
 export default StyleSheet.create({
   caption: {
     flex: 1,
-    padding: Metrics.baseMargin,
-    backgroundColor: '#feffcc'
+    paddingVertical: Metrics.baseMargin,
+    backgroundColor: '#feffcc',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   subtitle: {
-    fontSize: Fonts.size.input,
+    fontSize: Fonts.size.regular,
     fontWeight: 'bold',
     textAlign: 'center',
-    padding: Metrics.baseMargin
+    paddingVertical: Metrics.baseMargin
   },
   bottomFunction: {
     padding: Metrics.baseMargin
