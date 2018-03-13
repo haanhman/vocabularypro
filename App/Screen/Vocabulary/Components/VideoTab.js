@@ -19,6 +19,7 @@ export default class VideoTab extends Component {
     this.videoData = JSON.parse(this.props.word.video_data);
     this.captionAPI = new CaptionAPI();
     this.state = {
+      isReady: false,
       initYoutube: false,
       videoLang: 'uk',
       videoIndex: 0,
@@ -80,7 +81,7 @@ export default class VideoTab extends Component {
       fullscreen={false}       // control whether the video should play in fullscreen or inline
       loop={false}             // control whether the video should loop when ended
 
-      onReady={e => this.setState({isReady: true})}
+      onReady={e => this.setState({isReady: true, sub: ''})}
       onChangeState={e => this.onChangeState(e)}
       onChangeQuality={e => this.setState({quality: e.quality})}
       onError={e => this.setState({error: e.error})}
@@ -117,7 +118,7 @@ export default class VideoTab extends Component {
 
 
   renderCaption() {
-    if (!this.state.initYoutube) {
+    if (!this.state.isReady) {
       return null;
     }
     return (
@@ -139,7 +140,7 @@ export default class VideoTab extends Component {
   }
 
   renderButtonFunction() {
-    if (!this.state.initYoutube) {
+    if (!this.state.isReady) {
       return null;
     }
     return (
@@ -162,18 +163,18 @@ export default class VideoTab extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.langVideo}>
-          <TouchableOpacity style={styles.flag} onPress={() => this.setState({videoLang: 'uk', videoIndex: 0})}>
+          <TouchableOpacity style={[this.state.videoLang == 'uk' ? styles.flagActive : null , styles.flag]} onPress={() => this.setState({videoLang: 'uk', videoIndex: 0})}>
             <Image style={styles.flagImage} source={require('../../../Images/united-kingdom.png')}/>
             <View>
-              <Text>United Kingdom</Text>
-              <Text>{this.videoData['uk'].length} videos</Text>
+              <Text style={this.state.videoLang == 'uk' ? styles.textWhite : null}>United Kingdom</Text>
+              <Text style={this.state.videoLang == 'uk' ? styles.textWhite : null}>{this.videoData['uk'].length} videos</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.flag} onPress={() => this.setState({videoLang: 'us', videoIndex: 0})}>
+          <TouchableOpacity style={[this.state.videoLang == 'us' ? styles.flagActive : null , styles.flag]} onPress={() => this.setState({videoLang: 'us', videoIndex: 0})}>
             <Image  style={styles.flagImage} source={require('../../../Images/united-states.png')}/>
             <View>
-              <Text>United States</Text>
-              <Text>{this.videoData['us'].length} videos</Text>
+              <Text style={this.state.videoLang == 'us' ? styles.textWhite : null}>United States</Text>
+              <Text style={this.state.videoLang == 'us' ? styles.textWhite : null}>{this.videoData['us'].length} videos</Text>
             </View>
           </TouchableOpacity>
         </View>

@@ -20,7 +20,8 @@ export default StyleSheet.create({
     padding: Metrics.baseMargin
   },
   staticVideo: {
-    paddingBottom: Metrics.baseMargin
+    paddingBottom: Metrics.baseMargin,
+    textAlign: 'center'
   },
   listButtom: {
     justifyContent: 'space-between',
@@ -60,5 +61,12 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: Metrics.baseMargin
+  },
+  flagActive: {
+    backgroundColor: variable.mainBackground
+  },
+  textWhite: {
+    color: 'white',
+    fontWeight: 'bold'
   }
 })
