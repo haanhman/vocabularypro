@@ -18,7 +18,8 @@ export default class DetailModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      images: []
+      // images: []
+      images: require('../../../Assets/images.json')
     }
     this.api = new SearchImageAPI();
   }
@@ -37,6 +38,7 @@ export default class DetailModal extends Component {
   searchImageNow() {
     this.setState({images: []});
     this.api.search(this.props.wordName, this.token, (json) => {
+      console.log(json.results[0]);
       this.setState({images: json.results});
     })
   }

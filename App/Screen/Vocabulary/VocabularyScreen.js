@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, Container, Spinner, Header, Title, Left, Body, Button, Text, Icon, Content} from 'native-base';
-import {TouchableOpacity} from 'react-native'
+import {TouchableOpacity, NetInfo, Platform} from 'react-native'
 import {connect} from 'react-redux'
 
 import GroupModel from '../../Entities/GroupModel'
@@ -50,6 +50,18 @@ class VocabularyScreen extends Component {
       this.setState({wordType: results});
     });
     this.getAllWord();
+    // NetInfo.getConnectionInfo().then((connectionInfo) => {
+    //   console.log(connectionInfo);
+    //   // console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+    // });
+    this.isNetworkConnected();
+  }
+
+  isNetworkConnected() {
+    const handleFirstConnectivityChangeIOS = isConnected => {
+      console.log('isConnected: ' + isConnected);
+    };
+    NetInfo.isConnected.addEventListener('connectionChange', handleFirstConnectivityChangeIOS);
   }
 
   getAllWord() {
@@ -88,7 +100,7 @@ class VocabularyScreen extends Component {
 
   selectVocabulary(item) {
     this.setState({selectedWord: item, showDetail: true});
-    this.detail.searchImage();
+    // this.detail.searchImage();
     this.wordModel.getWordDetail(item.id, (row) => {
       this.setState({fetchDetail: true, selectedWord: row});
     })

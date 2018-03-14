@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import styles from '../Styles/ImageListViewStyle'
 import {Image} from 'react-native';
 import {Card, CardItem} from 'native-base'
-
+import {getImageHeight} from '../../../Lib/global'
 class ImageListView extends React.PureComponent {
   /* ***********************************************************
    * STEP 2
@@ -22,8 +22,8 @@ class ImageListView extends React.PureComponent {
     return (
       <TouchableOpacity onPress={() => this.props.showSwiper(index)} style={styles.row}>
         <Card>
-          <CardItem cardBody>
-            <Image source={{uri: item.unescapedUrl}} style={{height: 200, width: null, flex: 1}}/>
+          <CardItem cardBody style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Image source={{uri: item.url}} style={{width: 200, height: getImageHeight(200, item.width, item.height)}}/>
           </CardItem>
         </Card>
       </TouchableOpacity>

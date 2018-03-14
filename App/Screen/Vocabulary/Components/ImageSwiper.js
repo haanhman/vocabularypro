@@ -21,7 +21,7 @@ export default class ImageSwiper extends Component {
               this.props.images.map((item, index) => {
                 return (
                   <View key={index} style={styles.slide}>
-                    <Image source={{uri: item.unescapedUrl}} style={{
+                    <Image source={{uri: item.url}} style={{
                       width: Metrics.screenWidth,
                       height: getImageHeight(Metrics.screenWidth, item.width, item.height)
                     }}/>

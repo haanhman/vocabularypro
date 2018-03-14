@@ -43,3 +43,12 @@ export function chunkArray(myArray, chunk_size) {
 export function ucFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+export function checkNetwork(string) {
+  return '';
+  // NetInfo.getConnectionInfo().then((connectionInfo) => {
+  //   console.log(connectionInfo);
+  //   console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+  // });
+}
