@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -75,6 +74,7 @@
 		EEF35D60A2154FA3824C35B3 /* libSQLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD825295F274910A05C907D /* libSQLite.a */; };
 		F40FDB26EDF54B0493296E18 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C4A61F393E844569D38FA88 /* EvilIcons.ttf */; };
 		F7AE06095A6845C4A5160EE4 /* libRCTYouTube.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29027E2A65DF465CA539B79B /* libRCTYouTube.a */; };
+		889A9B9572FF4E9395E08E70 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F63231C0278424CA60C22F4 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -460,6 +460,7 @@
 		F0BB4AC1E2B64F58BC694885 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		F61FDDE9F1994D01AB1E5985 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = "../node_modules/native-base/Fonts/OFL.txt"; sourceTree = "<group>"; };
 		FA6D62BA265142A1BB23793F /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		7F63231C0278424CA60C22F4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +500,7 @@
 				44C18ECF02814C9E9D7D8872 /* libReactNativeConfig.a in Frameworks */,
 				F7AE06095A6845C4A5160EE4 /* libRCTYouTube.a in Frameworks */,
 				EEF35D60A2154FA3824C35B3 /* libSQLite.a in Frameworks */,
+				889A9B9572FF4E9395E08E70 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +698,7 @@
 			children = (
 				4D91F30F203EC05D002A44BE /* AVFoundation.framework */,
 				4D91F1C6203EA2A2002A44BE /* CoreFoundation.framework */,
+				7F63231C0278424CA60C22F4 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {TouchableOpacity} from "react-native";
-import {Container, Card, View, Content} from "native-base";
+import {Container, Header, Body, Title, TabHeading, Icon, Text, Tabs, Tab} from "native-base";
 import {Image} from 'react-native';
 import {connect} from "react-redux";
-import {Images, Metrics} from '../../Themes';
-import {getImageHeight} from '../../Lib/global'
 import styles from './Styles/style'
+import IPAScreen from '../IPA/IPAScreen'
+import {Metrics} from '../../Themes'
 class MainScreen extends Component {
 
   constructor(props) {
@@ -22,21 +22,23 @@ class MainScreen extends Component {
   }
 
   render() {
-    const imgWidth = Metrics.screenWidth - 4;
     return (
       <Container>
-        <Content>
-          <Card style={styles.cardIPA}>
-            <TouchableOpacity onPress={() => this.openScreen('IPAScreen')}>
-              <Image source={Images.pronounce} style={{width: imgWidth, height: getImageHeight(imgWidth, 350, 150)}}/>
-            </TouchableOpacity>
-          </Card>
-          <Card>
-            <TouchableOpacity onPress={() => this.openScreen('VocabularyScreen')}>
-              <Image source={Images.vocabulary} style={{width: imgWidth, height: getImageHeight(imgWidth, 350, 150)}}/>
-            </TouchableOpacity>
-          </Card>
-        </Content>
+        <Header>
+          <Body style={{flex: 1}}>
+            <Title style={{color: 'white'}}>Vocabulary</Title>
+          </Body>
+        </Header>
+
+        <Tabs>
+          <Tab style={{paddingTop: 10}} heading={ <TabHeading><Icon name="ios-bookmark-outline" /><Text>bookmark</Text></TabHeading>}>
+            <Text>Noi dung tab 1</Text>
+          </Tab>
+          <Tab style={{paddingTop: 10}} heading={ <TabHeading><Icon name="md-walk" /><Text>Camera</Text></TabHeading>}>
+            <IPAScreen />
+          </Tab>
+        </Tabs>
+
       </Container>
     )
   }

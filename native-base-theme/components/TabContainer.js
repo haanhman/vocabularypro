@@ -7,7 +7,7 @@ export default (variables = variable) => {
 
   const tabContainerTheme = {
     elevation: 3,
-    height: 50,
+    height: 70,
     flexDirection: "row",
     shadowColor: platformStyle === "material" ? "#000" : undefined,
     shadowOffset: platformStyle === "material"
@@ -17,7 +17,7 @@ export default (variables = variable) => {
     shadowRadius: platformStyle === "material" ? 1.2 : undefined,
     justifyContent: "space-around",
     borderBottomWidth: Platform.OS === "ios" ? variables.borderWidth : 0,
-    borderColor: variables.topTabBarBorderColor
+    borderColor: variables.topTabBarBorderColor,
   };
 
   return tabContainerTheme;

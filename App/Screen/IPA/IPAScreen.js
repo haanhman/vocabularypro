@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {ScrollView, TouchableOpacity} from 'react-native'
-import {Container, Content, Header, Title, Left, Body, Icon, Button} from 'native-base';
+import {Container, Content} from 'native-base';
 import {connect} from 'react-redux'
 
 
@@ -42,30 +42,18 @@ class IPAScreen extends Component {
   render() {
     return (
       <ScrollView>
-        <Container>
-          <Header>
-            <Left style={{flex: 1}}>
-              <Button onPress={() => this.backAction()} transparent>
-                <Icon name='arrow-back' style={{color: 'white'}}/>
-              </Button>
-            </Left>
-            <Body style={{flex: 8, alignItems: 'flex-start'}}>
-              <Title style={{color: 'white'}}>International Phonetic Alphabet</Title>
-            </Body>
-          </Header>
-          <Content>
-            {
-              ipaData.map((item, index) => {
-                return (
-                  <TouchableOpacity key={index} onPress={() => this.playGroup(item)}>
-                    <Group item={item} soundWidth={this.state.CardItemWidth}/>
-                  </TouchableOpacity>
-                )
-              })
-            }
-          </Content>
-          <IPAModal close={() => this.closeModal()} group={this.state.playGroup} visible={this.state.play}/>
-        </Container>
+        <Content>
+          {
+            ipaData.map((item, index) => {
+              return (
+                <TouchableOpacity key={index} onPress={() => this.playGroup(item)}>
+                  <Group item={item} soundWidth={this.state.CardItemWidth}/>
+                </TouchableOpacity>
+              )
+            })
+          }
+        </Content>
+        <IPAModal close={() => this.closeModal()} group={this.state.playGroup} visible={this.state.play}/>
       </ScrollView>
     )
   }

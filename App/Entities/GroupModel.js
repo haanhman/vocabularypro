@@ -3,10 +3,10 @@
  */
 import Model from './Model'
 export default class GroupModel extends Model {
-  table = 'groups';
+  table = 'group';
 
   getAllGroups(cb) {
-    const sql = "SELECT id, name FROM " + this.table;
+    const sql = "SELECT id, name, total_word, meant FROM " + this.table;
     this.select(sql, [], (results) => {
       cb(results);
     })
