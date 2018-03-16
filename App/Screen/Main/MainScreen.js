@@ -5,16 +5,24 @@ import {Image} from 'react-native';
 import {connect} from "react-redux";
 import styles from './Styles/style'
 import IPAScreen from '../IPA/IPAScreen'
-import {Metrics} from '../../Themes'
+import GroupModel from '../../Entities/GroupModel'
+import ListGroup from './Components/ListGroup'
 class MainScreen extends Component {
 
+  groupModel = null;
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      groups: []
+    }
+    this.groupModel = new GroupModel();
   }
 
   componentDidMount() {
-
+    this.groupModel.getAllGroups((results) => {
+      console.log(results);
+      this.setState({groups: results});
+    })
   }
 
   openScreen(screenName) {
@@ -31,14 +39,13 @@ class MainScreen extends Component {
         </Header>
 
         <Tabs>
-          <Tab style={{paddingTop: 10}} heading={ <TabHeading><Icon name="ios-bookmark-outline" /><Text>bookmark</Text></TabHeading>}>
-            <Text>Noi dung tab 1</Text>
+          <Tab heading={ <TabHeading><Icon name="ios-bookmark-outline" /><Text>bookmark</Text></TabHeading>}>
+            <ListGroup groups={this.state.groups} />
           </Tab>
           <Tab style={{paddingTop: 10}} heading={ <TabHeading><Icon name="md-walk" /><Text>Camera</Text></TabHeading>}>
             <IPAScreen />
           </Tab>
         </Tabs>
-
       </Container>
     )
   }

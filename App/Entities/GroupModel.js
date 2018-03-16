@@ -6,7 +6,7 @@ export default class GroupModel extends Model {
   table = 'group';
 
   getAllGroups(cb) {
-    const sql = "SELECT id, name, total_word, meant FROM " + this.table;
+    const sql = "SELECT id, name, total_word, meant FROM `" + this.table + "` ORDER BY id";
     this.select(sql, [], (results) => {
       cb(results);
     })
