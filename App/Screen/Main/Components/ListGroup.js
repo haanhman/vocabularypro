@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 
 // Styles
 import styles from '../Styles/ListGroupStyle'
+import { ProgressCircle }  from 'react-native-svg-charts'
 
 class ListGroup extends React.PureComponent {
 
@@ -14,6 +15,11 @@ class ListGroup extends React.PureComponent {
     return (
       <View style={styles.row}>
         <View style={styles.bgInner}>
+          <ProgressCircle
+            style={ { height: 200 } }
+            progress={ 0.7 }
+            progressColor={'rgb(134, 65, 244)'}
+          />
           <Image source={require('../../../Images/boy.png')} style={styles.thumbnail} />
           <Text>{item.name}</Text>
         </View>
