@@ -8,21 +8,31 @@ import { connect } from 'react-redux'
 // Styles
 import styles from '../Styles/ListGroupStyle'
 import { ProgressCircle }  from 'react-native-svg-charts'
-
+/*
+* <ProgressCircle
+ style={styles.ProgressCircle}
+ progress={ 0.7 }
+ progressColor={'red'}
+ />
+* */
 class ListGroup extends React.PureComponent {
 
   renderRow ({item}) {
+    let rd = Math.random();
     return (
       <View style={styles.row}>
         <View style={styles.bgInner}>
-          <ProgressCircle
-            style={ { height: 200 } }
-            progress={ 0.7 }
-            progressColor={'rgb(134, 65, 244)'}
-          />
+          <View style={styles.chart}>
+            <ProgressCircle
+              style={[styles.ProgressCircle, rd <= 0.5 ? {transform: [{ rotate: (36*(rd*10)) + 'deg'}]} : {}]}
+              progress={ rd }
+              progressColor={'#30ff00'}
+            />
+          </View>
           <Image source={require('../../../Images/boy.png')} style={styles.thumbnail} />
-          <Text>{item.name}</Text>
         </View>
+        <Text style={styles.groupName}>{item.name}</Text>
+        <Text style={styles.static}>0/{item.total_word}</Text>
       </View>
     )
   }

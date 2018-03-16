@@ -1,10 +1,9 @@
-import { StyleSheet } from 'react-native'
-import { Metrics, Colors } from '../../../Themes'
+import {StyleSheet} from 'react-native'
+import {Metrics, Colors} from '../../../Themes'
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: '#e1e9ea',
-    paddingTop: 10
+    backgroundColor: '#e1e9ea'
   },
   row: {
     backgroundColor: Colors.snow,
@@ -14,6 +13,16 @@ export default StyleSheet.create({
     margin: 20,
     padding: 3,
     borderRadius: 10
+  },
+  chart: {
+    position: 'absolute',
+    // top: 0,
+    // left: 0,
+    width: 120,
+    height: 120
+  },
+  ProgressCircle: {
+    height: 120,
   },
   bgInner: {
     flex: 1,
@@ -29,5 +38,14 @@ export default StyleSheet.create({
     height: 100,
     borderRadius: 50,
     backgroundColor: Colors.snow
+  },
+  groupName: {
+    padding: Metrics.baseMargin,
+    textAlign: 'center',
+    padding: 0
+  },
+  static: {
+    color: '#81817f',
+    textAlign: 'center',
   }
 })

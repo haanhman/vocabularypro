@@ -20,7 +20,7 @@ class MainScreen extends Component {
 
   componentDidMount() {
     this.groupModel.getAllGroups((results) => {
-      console.log(results);
+      // console.log(results);
       this.setState({groups: results});
     })
   }
