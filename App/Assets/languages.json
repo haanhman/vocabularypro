@@ -1,0 +1,50 @@
+[
+  {
+    "code": "vi",
+    "lang": "Vietnamese"
+  },
+  {
+    "code": "ko",
+    "lang": "Korean"
+  },
+  {
+    "code": "fr",
+    "lang": "French"
+  },
+  {
+    "code": "es",
+    "lang": "Spanish"
+  },
+  {
+    "code": "pt",
+    "lang": "Portuguese"
+  },
+  {
+    "code": "nl",
+    "lang": "Dutch"
+  },
+  {
+    "code": "zh-CN",
+    "lang": "Chinese (Simplified)"
+  },
+  {
+    "code": "zh-TW",
+    "lang": "Chinese (Traditional)"
+  },
+  {
+    "code": "ja",
+    "lang": "Japanese"
+  },
+  {
+    "code": "it",
+    "lang": "Italian"
+  },
+  {
+    "code": "th",
+    "lang": "Thailand"
+  },
+  {
+    "code": "id",
+    "lang": "Indonesian"
+  }
+]

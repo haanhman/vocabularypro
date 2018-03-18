@@ -7,13 +7,15 @@ import styles from './Styles/style'
 import IPAScreen from '../IPA/IPAScreen'
 import GroupModel from '../../Entities/GroupModel'
 import ListGroup from './Components/ListGroup'
+import LanguageModal from './Components/LanguageModal'
 class MainScreen extends Component {
 
   groupModel = null;
   constructor(props) {
     super(props);
     this.state = {
-      groups: []
+      groups: [],
+      showLanguageModal: false
     }
     this.groupModel = new GroupModel();
   }
@@ -40,14 +42,19 @@ class MainScreen extends Component {
 
         <Tabs>
           <Tab heading={ <TabHeading><Icon name="ios-bookmark-outline" /><Text>bookmark</Text></TabHeading>}>
-            <ListGroup groups={this.state.groups} />
+            <ListGroup lang={'vi'} groups={this.state.groups} />
           </Tab>
           <Tab style={{paddingTop: 10}} heading={ <TabHeading><Icon name="md-walk" /><Text>Camera</Text></TabHeading>}>
             <IPAScreen />
           </Tab>
         </Tabs>
+        <LanguageModal close={() => this.closeLanguageModal()} visible={this.state.showLanguageModal}/>
       </Container>
     )
+  }
+
+  closeLanguageModal() {
+    this.setState({showLanguageModal: false});
   }
 }
 

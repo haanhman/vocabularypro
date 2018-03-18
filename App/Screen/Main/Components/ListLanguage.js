@@ -1,51 +1,35 @@
 import React from 'react'
-import { FlatList, Image } from 'react-native'
-import { View, Content, Text } from 'native-base'
-import { connect } from 'react-redux'
+import {View, FlatList} from 'react-native'
+import {Text, ListItem, Body, CheckBox} from 'native-base'
+import {connect} from 'react-redux'
 
 // More info here: https://facebook.github.io/react-native/docs/flatlist.html
 
 // Styles
-import styles from '../Styles/ListGroupStyle'
-import { ProgressCircle }  from 'react-native-svg-charts'
-/*
-* <ProgressCircle
- style={styles.ProgressCircle}
- progress={ 0.7 }
- progressColor={'red'}
- />
-* */
-class ListGroup extends React.PureComponent {
+import styles from '../Styles/ListLanguageStyle'
 
-  renderRow ({item}) {
-    const {lang} = this.props;
-    const meant = JSON.parse(item.meant);
-    let rd = Math.random();
+class ListLanguage extends React.PureComponent {
+
+  renderRow({item}) {
+    console.log(item);
     return (
-      <View style={styles.row}>
-        <View style={styles.bgInner}>
-          <View style={styles.chart}>
-            <ProgressCircle
-              style={[styles.ProgressCircle, rd <= 0.5 ? {transform: [{ rotate: (36*(rd*10)) + 'deg'}]} : {}]}
-              progress={ rd }
-              progressColor={'#30ff00'}
-            />
-          </View>
-          <Image source={require('../../../Images/boy.png')} style={styles.thumbnail} />
-        </View>
-        <Text style={styles.groupName}>{meant[lang]}</Text>
-        <Text style={styles.static}>0/{item.total_word}</Text>
-      </View>
+      <ListItem>
+        <CheckBox checked={true}/>
+        <Body>
+        <Text>{item.lang}</Text>
+        </Body>
+      </ListItem>
     )
   }
 
   /* ***********************************************************
-  * STEP 3
-  * Consider the configurations we've set below.  Customize them
-  * to your liking!  Each with some friendly advice.
-  *************************************************************/
+   * STEP 3
+   * Consider the configurations we've set below.  Customize them
+   * to your liking!  Each with some friendly advice.
+   *************************************************************/
   // Render a header?
   renderHeader = () => null
+
   // Render a footer?
   renderFooter = () => null
 
@@ -76,14 +60,13 @@ class ListGroup extends React.PureComponent {
   //   {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   // )}
 
-  render () {
+  render() {
     return (
-      <Content style={styles.container}>
+      <View style={styles.container}>
         <FlatList
           contentContainerStyle={styles.listContent}
-          data={this.props.groups}
-          renderItem={(item) => this.renderRow(item)}
-          numColumns={2}
+          data={this.props.languages}
+          renderItem={this.renderRow}
           keyExtractor={this.keyExtractor}
           initialNumToRender={this.oneScreensWorth}
           ListHeaderComponent={this.renderHeader}
@@ -91,7 +74,7 @@ class ListGroup extends React.PureComponent {
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.renderSeparator}
         />
-      </Content>
+      </View>
     )
   }
 }
@@ -103,8 +86,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-  }
+  return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListGroup)
+export default connect(mapStateToProps, mapDispatchToProps)(ListLanguage)
