@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Modal, TouchableOpacity} from 'react-native'
-import {Text, View, Container} from 'native-base';
+import {Text, View, Container, Content} from 'native-base';
 import {connect} from 'react-redux'
 import styles from '../Styles/languageModal'
-import ListLanguage from './ListLanguage'
+import LanguageItem from './LanguageItem'
 class LanguageModal extends Component {
   constructor(props) {
     super(props);
@@ -16,18 +16,23 @@ class LanguageModal extends Component {
     console.log(this.state.languages);
   }
 
+  renderLanguageItems() {
+    const {languages} = this.state;
+    return languages.map((item, index) => {
+      return <LanguageItem key={index} item={item} />
+    });
+  }
+
   render() {
     return (
 
       <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
         }}>
-        <Container>
-          <View style={styles.container}>
-            <View style={styles.list}>
-              <ListLanguage languages={this.state.languages} />
-            </View>
+        <View style={styles.bg}>
+          <View style={styles.list}>
+            {this.renderLanguageItems()}
           </View>
-        </Container>
+        </View>
       </Modal>
 
     )

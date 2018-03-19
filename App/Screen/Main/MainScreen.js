@@ -15,7 +15,7 @@ class MainScreen extends Component {
     super(props);
     this.state = {
       groups: [],
-      showLanguageModal: false
+      showLanguageModal: true
     }
     this.groupModel = new GroupModel();
   }
