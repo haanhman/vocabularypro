@@ -1,13 +1,14 @@
 import '../Config'
 import DebugConfig from '../Config/DebugConfig'
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
+import React, {Component} from 'react'
+import {Provider} from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
-
+import {PersistGate} from 'redux-persist/integration/react'
+import {persistStore} from "redux-persist";
 // create our store
 const store = createStore()
-
+const persistor = persistStore(store);
 /**
  * Provides an entry point into our application.  Both index.ios.js and index.android.js
  * call this component first.
@@ -18,10 +19,13 @@ const store = createStore()
  * We separate like this to play nice with React Native's hot reloading.
  */
 class App extends Component {
-  render () {
+
+  render() {
     return (
       <Provider store={store}>
-        <RootContainer />
+        <PersistGate loading={null} persistor={persistor}>
+          <RootContainer />
+        </PersistGate>
       </Provider>
     )
   }

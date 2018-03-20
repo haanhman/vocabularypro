@@ -4,6 +4,7 @@ import {Text, View, Container, Content} from 'native-base';
 import {connect} from 'react-redux'
 import styles from '../Styles/languageModal'
 import LanguageItem from './LanguageItem'
+import {changeLanguage} from '../../../Redux/Actions/VocabularyAction'
 class LanguageModal extends Component {
   constructor(props) {
     super(props);
@@ -13,21 +14,24 @@ class LanguageModal extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.languages);
+    console.log("currentLanguage: " + this.props.currentLanguage);
+  }
+
+  switchLanguage(code) {
+    this.props.changeLanguage(code);
+    this.props.close();
   }
 
   renderLanguageItems() {
     const {languages} = this.state;
     return languages.map((item, index) => {
-      return <LanguageItem key={index} item={item} />
+      return <LanguageItem switchLanguage={(code) => this.switchLanguage(code)} currentLanguage={this.props.currentLanguage} key={index} item={item} />
     });
   }
 
   render() {
     return (
-
-      <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => {
-        }}>
+      <Modal animationType={'slide'} transparent={true} visible={this.props.visible} onRequestClose={() => this.props.close()}>
         <View style={styles.bg}>
           <View style={styles.list}>
             {this.renderLanguageItems()}
@@ -40,11 +44,9 @@ class LanguageModal extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {}
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    currentLanguage: state.vocabulary.language
+  }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(LanguageModal)
+export default connect(mapStateToProps, {changeLanguage})(LanguageModal)

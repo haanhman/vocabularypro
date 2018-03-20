@@ -1,58 +1,41 @@
 import React from 'react'
-import { FlatList, Image } from 'react-native'
-import { View, Content, Text } from 'native-base'
-import { connect } from 'react-redux'
+import {FlatList, Image} from 'react-native'
+import {View, Content, Text} from 'native-base'
+import {connect} from 'react-redux'
 
 // More info here: https://facebook.github.io/react-native/docs/flatlist.html
 
 // Styles
 import styles from '../Styles/ListGroupStyle'
-import { ProgressCircle }  from 'react-native-svg-charts'
+import {ProgressCircle}  from 'react-native-svg-charts'
 /*
-* <ProgressCircle
+ * <ProgressCircle
  style={styles.ProgressCircle}
  progress={ 0.7 }
  progressColor={'red'}
  />
-* */
+ * */
 class ListGroup extends React.PureComponent {
 
-  renderRow ({item}) {
-    const {lang} = this.props;
-    const meant = JSON.parse(item.meant);
+  renderRow({item}) {
     let rd = Math.random();
     return (
       <View style={styles.row}>
         <View style={styles.bgInner}>
           <View style={styles.chart}>
             <ProgressCircle
-              style={[styles.ProgressCircle, rd <= 0.5 ? {transform: [{ rotate: (36*(rd*10)) + 'deg'}]} : {}]}
+              style={[styles.ProgressCircle, rd <= 0.5 ? {transform: [{rotate: (36 * (rd * 10)) + 'deg'}]} : {}]}
               progress={ rd }
               progressColor={'#30ff00'}
             />
           </View>
-          <Image source={require('../../../Images/boy.png')} style={styles.thumbnail} />
+          <Image source={require('../../../Images/boy.png')} style={styles.thumbnail}/>
         </View>
-        <Text style={styles.groupName}>{meant[lang]}</Text>
+        <Text style={styles.groupName}>{item.displayName}</Text>
         <Text style={styles.static}>0/{item.total_word}</Text>
       </View>
     )
   }
-
-  /* ***********************************************************
-  * STEP 3
-  * Consider the configurations we've set below.  Customize them
-  * to your liking!  Each with some friendly advice.
-  *************************************************************/
-  // Render a header?
-  renderHeader = () => null
-  // Render a footer?
-  renderFooter = () => null
-
-  // Show this when data is empty
-  renderEmpty = () => null
-
-  renderSeparator = () => null
 
   // The default function if no Key is provided is index
   // an identifiable key is important if you plan on
@@ -76,20 +59,25 @@ class ListGroup extends React.PureComponent {
   //   {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   // )}
 
-  render () {
+  render() {
+    const {lang} = this.props;
+    let groups = Object.assign([], this.props.groups);
+    groups = groups.map(item => {
+      const meant = JSON.parse(item.meant);
+      return {
+        ...item,
+        displayName: meant[lang]
+      }
+    })
     return (
       <Content style={styles.container}>
         <FlatList
           contentContainerStyle={styles.listContent}
-          data={this.props.groups}
-          renderItem={(item) => this.renderRow(item)}
+          data={groups}
+          renderItem={this.renderRow}
           numColumns={2}
           keyExtractor={this.keyExtractor}
           initialNumToRender={this.oneScreensWorth}
-          ListHeaderComponent={this.renderHeader}
-          ListFooterComponent={this.renderFooter}
-          ListEmptyComponent={this.renderEmpty}
-          ItemSeparatorComponent={this.renderSeparator}
         />
       </Content>
     )
@@ -97,14 +85,7 @@ class ListGroup extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
+  return {}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListGroup)
+export default connect(mapStateToProps, {})(ListGroup)
